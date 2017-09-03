@@ -2,6 +2,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "collect.js": "^3.0.49",
+    "express": "^4.15.4",
     "nightmare": "^2.10.0",
     "tabletojson": "^0.6.0"
   },
