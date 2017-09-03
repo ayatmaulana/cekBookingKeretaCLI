@@ -8,6 +8,9 @@
     "node-horseman": "^3.3.0",
     "tabletojson": "^0.6.0"
   },
+  "bin": {
+    "booking-kereta" : "index.js"
+  },
   "name": "cek-kode-booking-kereta",
   "version": "1.0.0",
   "main": "index.js",
