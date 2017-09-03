@@ -5,18 +5,20 @@ const nightmare = Nightmare({
         partition: 'nopersist',
     },
 });
-const tabletojson = require('tabletojson')
+
 const cheerio     = require('cheerio')
 const collect     = require('collect.js')
+const commander   = require('commander')
 
-const kode_boking = "Z55EJ8"
+var kode_boking = null
+// "Z55EJ8"
 
-nightmare
+const scrap       = () => {
+    
+    nightmare
     .goto('https://tiket.kereta-api.co.id/?_it8tnz=TXc9PQ==&_8dnts=WTJobFkycz0=')
     .insert("input[name=kode_booking]", kode_boking)
     .click("input[type=submit]")
-
-nightmare
     .wait(1000)
     .evaluate( () => {
         return document.querySelector('.itReservationContent').innerHTML
@@ -28,33 +30,40 @@ nightmare
     .catch(function (err) {
         console.log(err);
     });
+}
 
 
-    const cekBooking = {
+
+    const cekBooking            = {
         html: null,
-        passanger: null,
+        passenger: null,
         load( html ) {
-            this.html  = cheerio.load( html )
+            this.html           = cheerio.load( html )
             this.parse()
         },
-        parse() {
-            const $       = this.html
-            let penumpangHtml = $('table:nth-child(2) tr')
+        tableToObj( tbl ){
+            const $             = this.html
 
-            var tbl = penumpangHtml.map(function() {
+            return tbl.map(function() {
                 return $(this).find('td').map(function() {
                   return $(this).html();
                 }).get();
               }).get();
+        },
+        parsePassenger()
+        {
+            const $             = this.html
+            let penumpangHtml   = $('table:nth-child(2) tr')
 
-            var atbl = tbl.filter( (item, i) => {
+            var tbl             = this.tableToObj( penumpangHtml )
+
+            var atbl            = tbl.filter( (item, i) => {
                 return i >= 6
             })
 
-            let c = collect(atbl)
-            const ch = c.chunk(6)
+            let ch               = collect(atbl).chunk( 6 )
 
-            let haha = ch.map( item => {
+            let passenger        = ch.map( item => {
                 return {
                     number: item[0],
                     nama: item[1],
@@ -65,12 +74,15 @@ nightmare
                 }
             } )
 
-            this.passanger = haha
+            this.passenger      = passenger
+        },
+        parse() {
+            this.parsePassenger()
             console.log(this.parseGeneral())
 
         },
         parseGeneral(){
-            const $ = this.html
+            const $             = this.html
 
             return  {
                     pembayaran : {
@@ -85,8 +97,24 @@ nightmare
                         berangkat: $('table:nth-child(1) tr:nth-child(10) td:nth-child(3)').text(),
                         datang: $('table:nth-child(1) tr:nth-child(11) td:nth-child(3)').text(),
                     },
-                    penumpang: this.passanger.toArray()
+                    penumpang: this.passenger.toArray()
                  }
         }
 
     }
+
+
+    const main = () => {
+        commander
+        .version('v1.0.1')
+        .option('-c, --code', 'Booking Code', (val) => kode_boking = val)
+        .parse(process.argv)
+
+        
+        if( commander.code ) scrap()
+        else console.log( "You must input Booking Code" )
+    }
+    
+
+
+    main()
