@@ -4,5 +4,11 @@
     "collect.js": "^3.0.49",
     "nightmare": "^2.10.0",
     "tabletojson": "^0.6.0"
-  }
+  },
+  "name": "cek-kode-booking-kereta",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ayatmaulana/cek-kode-booking-kereta",
+  "author": "ayat.maulana@indosystem.co",
+  "license": "MIT"
 }
