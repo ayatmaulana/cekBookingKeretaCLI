@@ -12,14 +12,14 @@ const cheerio = require('cheerio')
 const collect = require('collect.js')
 const commander = require('commander')
 
-var kode_boking = null
+var kode_boking 
 // "Z55EJ8"
 
-const scrap = () => {
+const scrap = async ( code  ) => {
 
-    nightmare
+  await nightmare
         .goto('https://tiket.kereta-api.co.id/?_it8tnz=TXc9PQ==&_8dnts=WTJobFkycz0=')
-        .insert("input[name=kode_booking]", kode_boking)
+        .insert("input[name=kode_booking]", code)
         .click("input[type=submit]")
         .wait(1000)
         .evaluate(() => {
@@ -55,7 +55,6 @@ const cekBooking = {
     parsePassenger() {
         const $ = this.html
         let penumpangHtml = $('table:nth-child(2) tr')
-
         var tbl = this.tableToObj(penumpangHtml)
 
         var atbl = tbl.filter((item, i) => {
@@ -105,15 +104,15 @@ const cekBooking = {
 }
 
 
-const main = () => {
+const main =  () => {
+
     commander
         .version('v1.0.1')
-        .option('-c, --code', 'Booking Code', (val) => kode_boking = val)
+        .option('-c, --code [booking_code]', 'Booking Code')
         .parse(process.argv)
 
-
-    if (commander.code) scrap()
-    else console.log("You must input Booking Code")
+	if (commander.code) scrap(commander.code)
+    	else console.log("You must input Booking Code")
 }
 
 
