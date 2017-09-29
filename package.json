@@ -11,7 +11,7 @@
   "bin": {
     "booking-kereta": "index.js"
   },
-  "name": "cek-kode-booking-kereta",
+  "name": "cek-booking-kereta",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/ayatmaulana/cekBookingKeretaCLI.git",
