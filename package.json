@@ -18,12 +18,12 @@
   },
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha --compilers coffee:coffeescript/register",
-    "start": "./node_modules/coffeescript/bin/coffee main.coffee -c QNEKGY",
-    "wakwa": "./node_modules/coffeescript/bin/coffee -c main.coffee",
+    "start": "./node_modules/coffeescript/bin/coffee main.coffee",
+    "compile-main": "./node_modules/coffeescript/bin/coffee -c main.coffee",
     "compile-all": "./node_modules/coffeescript/bin/coffee -c -o dist/ lib-coffee/ && ./node_modules/coffeescript/bin/coffee -c main.coffee"
   },
   "bin": {
-    "booking-kereta": "index.js"
+    "booking-kereta": "main.js"
   },
   "name": "cek-booking-kereta",
   "version": "1.0.0",
