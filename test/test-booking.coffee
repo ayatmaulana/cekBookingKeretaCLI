@@ -1,6 +1,6 @@
 assert = require('assert')
-scraper  = require('../lib/sraper.js')
-extractor = require('../lib/extractor')
+scraper  = require('../dist/scraper')
+extractor = require('../dist/extractor')
 
 bookingCode = "Z55EJ8"
 resultOfRequest  = null
