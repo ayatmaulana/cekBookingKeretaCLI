@@ -17,13 +17,13 @@ scrap = (code) ->
                               .wait(3000)
                               .evaluate(->
                                 getEl = document.querySelector('#data-input')
-                                if getEl == null
+                                if getEl is null
                                   return null
                                 getEl.innerHTML
                               )
                               .end()
 
-    if scraping == null
+    if scraping is null
       console.log 'data Not found'
       process.exit 1
 

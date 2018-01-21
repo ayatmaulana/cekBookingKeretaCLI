@@ -50,7 +50,7 @@ cekBooking =
       i++
     @passenger = res
     return
-    
+
   output: ->
     output =
       general: @general

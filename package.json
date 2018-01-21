@@ -20,7 +20,7 @@
     "test": "./node_modules/mocha/bin/mocha --compilers coffee:coffeescript/register",
     "start": "./node_modules/coffeescript/bin/coffee main.coffee",
     "compile-main": "./node_modules/coffeescript/bin/coffee -c main.coffee",
-    "compile-all": "./node_modules/coffeescript/bin/coffee -c -o dist/ lib-coffee/ && ./node_modules/coffeescript/bin/coffee -c main.coffee"
+    "compile-all": "./node_modules/coffeescript/bin/coffee -c -o dist/ lib-coffee/ && ./node_modules/coffeescript/bin/coffee --compile --bare --no-header main.coffee"
   },
   "bin": {
     "booking-kereta": "main.js"
