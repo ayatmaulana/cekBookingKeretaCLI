@@ -26,6 +26,7 @@
     "booking-kereta": "main.js"
   },
   "name": "cek-booking-kereta",
+  "description": "Best CLI tool to check the Indonesian railway booking code as easily, quickly, and elegantly.",
   "version": "2.1.0",
   "main": "index.js",
   "repository": "https://github.com/ayatmaulana/cekBookingKeretaCLI.git",
