@@ -23,7 +23,7 @@ spinner.color = 'blue';
 
 main = async function() {
   var ext, scrap;
-  commander.version('v2.1.1').option('-c, --code [booking_code]', 'Booking Code').parse(process.argv);
+  commander.version('v2.1.2').option('-c, --code [booking_code]', 'Booking Code').parse(process.argv);
   if (commander.code) {
     myCredit();
     spinner.start();
