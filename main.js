@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 ;
-var cheerio, commander, extractor, kode_boking, main, myCredit, ora, scraper, spinner;
+var cheerio, commander, config, extractor, kode_boking, main, myCredit, ora, scraper, spinner;
 
 myCredit = require('./credit.js');
 
@@ -17,13 +17,15 @@ ora = require('ora');
 
 kode_boking = void 0;
 
+config = require('./package.json');
+
 spinner = ora('Fetching Data ... ');
 
 spinner.color = 'blue';
 
 main = async function() {
   var ext, scrap;
-  commander.version('v2.1.2').option('-c, --code [booking_code]', 'Booking Code').parse(process.argv);
+  commander.version(config.version).option('-c, --code [booking_code]', 'Booking Code').parse(process.argv);
   if (commander.code) {
     myCredit();
     spinner.start();

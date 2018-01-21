@@ -12,11 +12,13 @@ commander = require('commander')
 ora = require('ora')
 kode_boking = undefined
 
+config = require('./package.json')
+
 spinner = ora('Fetching Data ... ')
 spinner.color = 'blue'
 
 main = ->
-  commander.version('v2.1.2')
+  commander.version( config.version )
            .option('-c, --code [booking_code]', 'Booking Code')
            .parse process.argv
 
