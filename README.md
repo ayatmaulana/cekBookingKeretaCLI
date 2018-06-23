@@ -43,7 +43,7 @@ List of depedencies that I use in this project
 - Ora
 - Commander
 - Chalk
-- Cli-table2
+- Cli-table3
 
 #### Testing
 
