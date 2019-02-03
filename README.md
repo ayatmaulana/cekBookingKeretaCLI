@@ -23,11 +23,11 @@ Just install it, and simplify your life.
 
 after installed globally, just run
 
-> cek-booking -c YOUR_BOOKING_CODE
+> booking-booking -c YOUR_BOOKING_CODE
 
 **example**
 
-> cek-booking -c VHTM2P
+> booking-booking -c VHTM2P
 
 [![gridly](https://media.giphy.com/media/xULW8pOp1lSoapEU8w/giphy.gif)]()
 
