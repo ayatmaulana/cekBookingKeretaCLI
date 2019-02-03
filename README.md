@@ -23,11 +23,11 @@ Just install it, and simplify your life.
 
 after installed globally, just run
 
-> booking-booking -c YOUR_BOOKING_CODE
+> booking-kereta -c YOUR_BOOKING_CODE
 
 **example**
 
-> booking-booking -c VHTM2P
+> booking-kereta -c VHTM2P
 
 [![gridly](https://media.giphy.com/media/xULW8pOp1lSoapEU8w/giphy.gif)]()
 
