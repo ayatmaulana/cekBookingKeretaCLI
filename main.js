@@ -38,6 +38,7 @@ main = async function() {
   } else {
     console.log('You must input Booking Code');
   }
+  return process.exit(1);
 };
 
 main();

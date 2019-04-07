@@ -34,7 +34,8 @@ main = ->
     console.log ext[1]
   else
     console.log 'You must input Booking Code'
-  return
+  
+  process.exit(1)
 
 main()
 

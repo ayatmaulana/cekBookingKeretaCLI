@@ -3,7 +3,6 @@ commander = require('commander')
 ora = require('ora')
 Table = require('cli-table3')
 chalk = require('chalk')
-asciify = require('asciify')
 
 cekBooking = 
   html: null
