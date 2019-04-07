@@ -8,7 +8,7 @@
 
   ora = require('ora');
 
-  Table = require('cli-table2');
+  Table = require('cli-table3');
 
   chalk = require('chalk');
 
